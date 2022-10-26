@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    index: calc(1vw + 1vh);
+}
+
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    height: 0.3rem;
+}
+
+.navbar .menu {
+    max-width: 72rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.navbar .menu .logo {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 4rem;
+}
+
+.navbar .menu .logo span {
+    font-weight: 100;
+}
+
+.navbar .menu .burger {
+    height: 4rem;
+    width: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navbar .menu .burger .bar {
+    width: 1.9rem;
+    height: 1.5px;
+    border-radius: 2px;
+    background-color: #eee;
+    transition: 0.3s;
+    position: relative;
+}
+
+.navbar .menu .burger .bar:after,
+.navbar .menu .burger .bar:before {
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background: #eee;
+    transition: 0.5s;
+}
+
+.navbar .menu .burger .bar:after {
+    transform: translateY(9px);
+}
+
+.navbar .menu .burger .bar:before {
+    transform: translateY(-9px);
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #485461;
+    background-image: linear-gradient(135deg, #485461 0%, #28313b 74%);
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.container .main {
+    position: relative;
+    width: 100%;
+    left: 0;
+    z-index: 5;
+    overflow: hidden;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+}
+
+.container .main header {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.container .main header.header__one {
+    background: url(../images/bg-1.jpeg) no-repeat top center/cover;
+}
+
+.container .main header.header__two {
+    background: url(../images/bg-2.jpeg) no-repeat top center/cover;
+}
+
+.container .main header.header__three {
+    background: url(../images/bg-3.jpeg) no-repeat top center/cover;
+}
+
+.container .main header.header__four {
+    background: url(../images/bg-4.jpeg) no-repeat top center/cover;
+}
+
+.container .main header.header__five {
+    background: url(../images/bg-5.jpeg) no-repeat top center/cover;
+}
+
+.container .main header.header__six {
+    background: url(../images/bg-6.jpeg) no-repeat top center/cover;
+}
+
+.container .main header .header {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(43, 51, 59, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .main header .header__item {
+    max-width: 35rem;
+    text-align: center;
+    color: #fff;
+    padding: 0 2rem;
+}
+
+.container .main header .header__item .title {
+    font-size: 2.7rem;
+}
+
+.container .main header .header__item .btn {
+    margin-top: 1rem;
+    padding: 0.6rem 1.6rem;
+    background-color: #1179e7;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Animation*/
+
+.container.active .bar {
+    transform: rotate(360deg);
+    background-color: transparent;
+}
+
+.container.active .bar:before {
+    transform: translateY(0) rotate(45deg);
+}
+
+.container.active .bar:after {
+    transform: translateY(0) rotate(-45deg);
+}
+
+.container.active .main {
+    animation: main-animation 1s ease;
+    cursor: pointer;
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+}
+
+.container.active .main:hover {
+    transform: perspective(1300px) rotateY(20deg) translateZ(340px) scale(0.5);
+}
+
+.container.active .main:hover+.shadow.one {
+    transform: perspective(1300px) rotateY(20deg) translateZ(230px) scale(0.5);
+}
+
+.container.active .shadow.one {
+    animation: shadow-one 0.6s ease-out;
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+}
+
+.container.active .shadow.two {
+    animation: shadow-two 0.6s ease-out;
+    transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+}
+
+.container.active .links a {
+    animation: appear 0.5s forwards ease var(--i);
+}
+
+@keyframes main-animation {
+    from {
+        transform: translate(0);
+    }
+
+    to {
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+}
+
+@keyframes shadow-one {
+    0% {
+        transform: translate(0);
+    }
+
+    5% {
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+
+    100% {
+        transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+    }
+}
+
+@keyframes shadow-two {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+    }
+
+    100% {
+        transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+    }
+}
+
+@keyframes hide {
+    from {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/**/
+
+.shadow {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: 0.5s;
+    background: #fff;
+}
+
+.shadow.one {
+    z-index: -1;
+    opacity: 0.15;
+}
+
+.shadow.two {
+    z-index: -2;
+    opacity: 0.1;
+}
+
+.links {
+    position: absolute;
+    width: 30%;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links a {
+    text-decoration: none;
+    color: #eee;
+    padding: 0.07rem 0;
+    font-size: 1rem;
+    display: inline-block;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: hide 0.5s forwards ease;
+}
+
+.links ul {
+    list-style: none;
+}
+
+/* Contacts form */
+
+.container-contact {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 1000px;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.content {
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 40px;
+    border: 1px solid #848282;
+    border-radius: 5px;
+    box-shadow: 4px 4px 8px 0 rgb(167 167 167 / 20%);
+    opacity: .75;
+}
+
+.left-side {
+    width: 25%;
+    height: 100%;
+    position: relative;
+}
+
+.left-side:before {
+    content: '';
+    position: absolute;
+    height: 70%;
+    width: 2px;
+    background: #afafb6;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.right-side {
+    width: 75%;
+    margin-left: 75px;
+}
+
+.details {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.about {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 7px;
+}
+
+.text-one,
+.text-two {
+    font-size: 14px;
+    color: #afafb6;
+}
+
+.header-text {
+    font-size: 23px;
+    font-weight: 600;
+    color: #3e2093;
+    margin-bottom: 10px;
+}
+
+.desc-contact-form {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 30px;
+}
+
+.input-box input,
+.input-box textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #f0f1f8;
+    padding: 0 20px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+}
+
+.input-box textarea {
+    resize: none;
+    padding: 20px;
+}
+
+.messege-box {
+    min-height: 110px;
+}
+
+.button {
+    display: inline-block;
+}
+
+.button input[type="submit"] {
+    color: #fff;
+    background: #3e2093;
+    border: none;
+    outline: none;
+    padding: 10px 40px;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+.button input[type="submit"]:hover {
+    background: #582ecc;
+}
+
+.suggest {
+    font-size: 14px;
+    color: #afafb6;
+    padding-left: 5px;
+}
